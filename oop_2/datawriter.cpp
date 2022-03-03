@@ -16,7 +16,7 @@ datawriter::~datawriter(){
 }
 
 bool datawriter::isopen() const{return output.is_open();};
-
+// добавляем одну строку в конец файла
 void datawriter::writecar( car c){
     if (output.is_open())
     {

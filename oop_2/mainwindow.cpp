@@ -33,7 +33,7 @@ void MainWindow::searchcar(){
         }
     }
 }
-
+// считываем из полей информацию и добавляем в массив, затем открываем файл и сразу вносим в него изменения
 void MainWindow::addcar(){
     car tempcar;
     tempcar.number = ui->inputID->text().toInt();
