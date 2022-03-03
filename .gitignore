@@ -59,3 +59,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+oop_1/oop_1.pro.user
+oop_2/oop_2.pro.user
+build-oop_1-Desktop_Qt_6_2_3_MinGW_64_bit-Debug
+*.user
+*.user
