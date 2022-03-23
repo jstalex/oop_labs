@@ -13,7 +13,7 @@ public:
     datawriter(const QString& filename);
     ~datawriter();
     bool isopen() const;
-    void writecar( car c);
+    void writecar( QString c);
 };
 
 

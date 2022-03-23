@@ -32,6 +32,32 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Type</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="typeBox">
+        <item>
+         <property name="text">
+          <string>car</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>truck</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>bus</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
        <widget class="QLabel" name="label">
         <property name="text">
          <string>ID:</string>
@@ -116,6 +142,16 @@
        </widget>
       </item>
       <item>
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Other:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="inputOther"/>
+      </item>
+      <item>
        <widget class="QPushButton" name="addbutton">
         <property name="text">
          <string>Add</string>
@@ -141,7 +177,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>728</x>
-     <y>55</y>
+     <y>33</y>
     </hint>
     <hint type="destinationlabel">
      <x>697</x>
@@ -156,8 +192,8 @@
    <slot>addcar()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>685</x>
-     <y>569</y>
+     <x>725</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel">
      <x>673</x>
@@ -172,12 +208,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>672</x>
-     <y>44</y>
+     <x>728</x>
+     <y>33</y>
     </hint>
     <hint type="destinationlabel">
-     <x>620</x>
-     <y>43</y>
+     <x>630</x>
+     <y>32</y>
     </hint>
    </hints>
   </connection>
@@ -188,12 +224,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>669</x>
-     <y>570</y>
+     <x>725</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel">
-     <x>521</x>
-     <y>575</y>
+     <x>467</x>
+     <y>64</y>
     </hint>
    </hints>
   </connection>
@@ -204,12 +240,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>709</x>
-     <y>564</y>
+     <x>725</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel">
-     <x>386</x>
-     <y>570</y>
+     <x>376</x>
+     <y>64</y>
     </hint>
    </hints>
   </connection>
@@ -220,12 +256,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>711</x>
-     <y>559</y>
+     <x>725</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel">
-     <x>257</x>
-     <y>570</y>
+     <x>273</x>
+     <y>64</y>
     </hint>
    </hints>
   </connection>
@@ -236,12 +272,28 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>699</x>
-     <y>561</y>
+     <x>725</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel">
-     <x>90</x>
-     <y>569</y>
+     <x>173</x>
+     <y>64</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addbutton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>inputOther</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>689</x>
+     <y>54</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>630</x>
+     <y>62</y>
     </hint>
    </hints>
   </connection>

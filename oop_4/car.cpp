@@ -3,14 +3,14 @@
 #include<car.h>
 
 QString car::to_string(){
-    return brand + " " + model + " " + QString::number(year);
+    return QString::number(number) + ";" + brand + ";" + model + ";" + QString::number(color) + ";" + QString::number(year);
 }
 
 QString truck::to_string(){
-    return brand + " " + model + " " + QString::number(year) + " " + QString::number(weight);
+    return QString::number(number) + ";" + brand + ";" + model + ";" + QString::number(color) + ";" + QString::number(year)+ ";" + QString::number(weight);
 }
 
 QString bus::to_string(){
-    return brand + " " + model + " " + QString::number(year) + " " + QString::number(capacity);
+    return QString::number(number) + ";" + brand + ";" + model + ";" + QString::number(color) + ";" + QString::number(year)+ ";" + QString::number(capacity);
 }
 

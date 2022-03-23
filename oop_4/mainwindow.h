@@ -19,7 +19,7 @@ public:
 
 public slots:
     void searchcar();
-    void addcar();
+    void addcar(int f);
 private:
     Ui::MainWindow *ui;
     std::vector<car> cars;

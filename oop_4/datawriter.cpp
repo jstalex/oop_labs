@@ -17,10 +17,10 @@ datawriter::~datawriter(){
 
 bool datawriter::isopen() const{return output.is_open();};
 // добавляем одну строку в конец файла
-void datawriter::writecar( car c){
+void datawriter::writecar( QString c){
     if (output.is_open())
     {
-        output << std::to_string(c.number) + ";" + c.brand.toStdString() + ";" + c.model.toStdString() + ";" + std::to_string(c.color) + ";" + std::to_string(c.year) << std::endl;
+        output << c.toStdString() << std::endl;
     }
     output.close();
 }
