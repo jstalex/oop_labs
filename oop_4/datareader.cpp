@@ -9,7 +9,7 @@
 std::vector<std::string> split(std::string str, std::string delim);
 
 //constructor
-Datareader::Datareader(const QString& filename){
+Datareader::Datareader(QString filename){
     input.open(filename.toStdString());
 }
 //destructor
@@ -17,15 +17,26 @@ Datareader::~Datareader(){
     input.close();
 }
 
+Datareader& Datareader::operator=(Datareader&& orher){
+    input = std::move(orher.input);
+    return *this;
+}
+
+Datareader::Datareader(Datareader&& orther){
+    input = std::move(orther.input);
+}
+
 // is open?
 bool Datareader::isopen() const{return input.is_open();};
 
 // read file and return vector of cars
-std::vector<car> Datareader::readAll(){
-    std::vector<car> cars;
+std::vector<std::vector<std::string>> Datareader::readAll(){
+    //std::vector<car> cars;
+    std::vector<std::vector<std::string>>cars;
+
     std::vector<std::string> splitted_input;
     std::string line;
-    car tempcar;
+    //car tempcar;
     if (input.is_open()) {
         while (!input.eof()) {
             // reading...
@@ -34,18 +45,7 @@ std::vector<car> Datareader::readAll(){
                 break;
             }
             splitted_input = split(line, ";");
-
-            tempcar.number = stoi(splitted_input[0]);
-            tempcar.brand = QString::fromStdString(splitted_input[1]);
-            tempcar.model = QString::fromStdString(splitted_input[2]);
-            tempcar.color = static_cast<colors>(stoi(splitted_input[3]));
-            tempcar.year = stoi(splitted_input[4]);
-
-            cars.push_back(tempcar);
-
-            sort(cars.begin(), cars.end(), [](const car& c1, const car& c2) {
-                return c1.year > c2.year;
-                });
+            cars.push_back(splitted_input);
         }
     }
     return cars;

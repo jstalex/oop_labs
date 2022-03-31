@@ -7,12 +7,18 @@
 
 class Datareader
 {
-    std::ifstream input;
+    Datareader(const Datareader&) = delete;
+    Datareader& operator=(const Datareader&) = delete;
 public:
-    Datareader(const QString& filename);
+    std::ifstream input;
+    Datareader( QString filename);
     ~Datareader();
     bool isopen() const;
-    std::vector<car> readAll();
+    std::vector<std::vector<std::string>> readAll();
+    //Оператор присваивания перемещением
+    Datareader& operator= (Datareader&& orther);
+    // Конструктор перемещения
+    Datareader(Datareader&& orther);
 };
 
 #endif // DATAREADER_H

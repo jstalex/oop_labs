@@ -18,17 +18,4 @@ public:
     int year;
     QString to_string();
 };
-
-class truck : public car {
-public:
-    int weight;
-    QString to_string();
-};
-
-class bus : public car {
-public:
-    int capacity;
-    QString to_string();
-};
-
 #endif // CAR_H

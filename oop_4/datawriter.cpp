@@ -15,7 +15,18 @@ datawriter::~datawriter(){
     output.close();
 }
 
+datawriter& datawriter::operator=(datawriter&& orher){
+    output = std::move(orher.output);
+    return *this;
+}
+
+datawriter::datawriter(datawriter&& orther){
+    output = std::move(orther.output);
+}
+
+
 bool datawriter::isopen() const{return output.is_open();};
+
 // добавляем одну строку в конец файла
 void datawriter::writecar( QString c){
     if (output.is_open())

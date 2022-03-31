@@ -3,7 +3,8 @@
 
 #include <QMainWindow>
 #include<car.h>
-
+#include<datareader.h>
+#include<QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,12 +17,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
 public slots:
     void searchcar();
-    void addcar(int f);
+    void addcar();
 private:
     Ui::MainWindow *ui;
-    std::vector<car> cars;
+    std::vector<std::vector<std::string>> cars;
 };
 #endif // MAINWINDOW_H
