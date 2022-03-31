@@ -67,3 +67,8 @@ build-oop_1-Desktop_Qt_6_2_3_MinGW_64_bit-Debug
 *.stash
 *.Debug
 *.Release
+*.o
+*.exe
+oop_4/Makefile
+oop_4/debug/moc_predefs.h
+oop_4/debug/moc_mainwindow.cpp
