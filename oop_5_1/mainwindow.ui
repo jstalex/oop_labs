@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1203</width>
-    <height>593</height>
+    <width>919</width>
+    <height>631</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -50,7 +50,7 @@
         <item>
          <widget class="QLabel" name="label_6">
           <property name="text">
-           <string>Type_it_is_5</string>
+           <string>Type</string>
           </property>
          </widget>
         </item>
@@ -192,7 +192,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1203</width>
+     <width>919</width>
      <height>22</height>
     </rect>
    </property>
@@ -215,12 +215,28 @@
    <slot>searchcar()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>656</x>
+     <x>727</x>
      <y>46</y>
     </hint>
     <hint type="destinationlabel">
-     <x>841</x>
-     <y>79</y>
+     <x>779</x>
+     <y>29</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>search_button</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>input_field</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>702</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>657</x>
+     <y>46</y>
     </hint>
    </hints>
   </connection>
@@ -231,12 +247,12 @@
    <slot>selectFile()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>812</x>
-     <y>43</y>
+     <x>886</x>
+     <y>44</y>
     </hint>
     <hint type="destinationlabel">
-     <x>835</x>
-     <y>43</y>
+     <x>897</x>
+     <y>27</y>
     </hint>
    </hints>
   </connection>
@@ -247,12 +263,92 @@
    <slot>addcar()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>818</x>
-     <y>82</y>
+     <x>855</x>
+     <y>77</y>
     </hint>
     <hint type="destinationlabel">
-     <x>829</x>
-     <y>535</y>
+     <x>910</x>
+     <y>87</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addbutton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>inputID</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>842</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>195</x>
+     <y>80</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addbutton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>inputBrand</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>853</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>75</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addbutton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>inputModel</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>858</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>442</x>
+     <y>82</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addbutton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>inputYear</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>861</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>542</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addbutton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>inputOther</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>870</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>796</x>
+     <y>73</y>
     </hint>
    </hints>
   </connection>
