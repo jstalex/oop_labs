@@ -13,6 +13,10 @@ public:
 
     std::vector<bus> readAll()override;
     bool isopen() const override {return input.is_open(); };
+
+    jsonReader& operator >> (car &c);
+
+    operator bool();
 };
 
 #endif // JSONREADER_H

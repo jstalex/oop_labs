@@ -177,6 +177,13 @@
        </layout>
       </item>
       <item>
+       <widget class="QPushButton" name="demonstrateButton">
+        <property name="text">
+         <string>Demonstrate to lab 6</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="customBrowser" name="output_field">
         <property name="openExternalLinks">
          <bool>true</bool>
@@ -352,10 +359,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>demonstrateButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>demonstrate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>538</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>713</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>searchcar()</slot>
   <slot>addcar()</slot>
   <slot>selectFile()</slot>
+  <slot>demonstrate()</slot>
  </slots>
 </ui>

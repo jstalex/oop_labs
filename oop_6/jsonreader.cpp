@@ -34,3 +34,33 @@ std::vector<bus> jsonReader::readAll(){
     }
     return result;
 }
+
+jsonReader& jsonReader::operator >> (car &c){
+    nlohmann::json json;
+    input >> json;
+
+    std::string tempStr;
+    int tempColor;
+
+    json[0].at("id").get_to(c.number);
+    json[0].at("brand").get_to(tempStr);
+    c.brand = QString::fromStdString(tempStr);
+    json[0].at("model").get_to(tempStr);
+    c.model = QString::fromStdString(tempStr);
+    json[0].at("color").get_to(tempColor);
+    c.color = static_cast<colors>(tempColor);
+    json[0].at("year").get_to(c.year);
+
+    return *this;
+}
+
+jsonReader::operator bool(){
+    return this->isopen();
+}
+
+
+
+
+
+
+

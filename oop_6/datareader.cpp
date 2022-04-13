@@ -72,6 +72,30 @@ std::vector<bus> Datareader::readAll(){
     return result;
 }
 
+
+Datareader& Datareader::operator >> (car &c){
+    std::string line;
+    std::vector<std::string> splitted;
+
+    if (input.is_open() && !input.eof()){
+        getline(input, line);
+
+        if (!line.empty()) {
+            splitted = split(line, ";");
+            c.number = stoi(splitted[0]);
+            c.brand = QString::fromStdString(splitted[1]);
+            c.model = QString::fromStdString(splitted[2]);
+            c.color = static_cast<colors>(stoi(splitted[3]));
+            c.year = stoi(splitted[4]);
+        }
+    }
+    return *this;
+}
+
+Datareader::operator bool(){
+    return !(this->input.eof());
+}
+
 // splitter for csv
 std::vector<std::string> split(std::string str, std::string delim)
 {

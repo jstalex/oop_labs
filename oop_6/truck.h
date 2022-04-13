@@ -7,7 +7,9 @@
 class truck : public car {
 public:
     int weight;
-    QString to_string();
+    QString to_string()const;
 };
+
+std::ostream& operator << (std::ostream &os, const truck &t);
 
 #endif // TRUCK_H

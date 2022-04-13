@@ -85,8 +85,8 @@ void MainWindow::addcar(){
         tempcar.color = static_cast<colors>(ui->colorbox->currentIndex());
         //cars.push_back(tempcar);
         writer.writecar(tempcar.to_string());
-
-        //std::cout << tempcar << std::endl;
+        // operator <<
+        std::cout << tempcar << std::endl;
         // to debug
         break;
     case 1:
@@ -116,3 +116,15 @@ void MainWindow::addcar(){
         cars = newDatabase.readAll();
     }
 }
+
+void MainWindow::demonstrate(){
+    Datareader cData("D:\\cars.csv");
+    car tCar;
+    while(cData >> tCar){
+        std::cout << tCar << std::endl;
+    }
+}
+
+
+
+

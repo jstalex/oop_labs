@@ -22,6 +22,7 @@ public slots:
     void searchcar();
     void addcar();
     void selectFile();
+    void demonstrate();
 private:
     Ui::MainWindow *ui;
     std::vector<bus> cars;

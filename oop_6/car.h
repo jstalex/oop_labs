@@ -16,8 +16,10 @@ public:
     QString model;
     colors color;
     int year;
-    QString to_string();
+    QString to_string()const;
     bool operator<(const car &c);
-    std::ostream& operator << (car &b);
 };
+
+std::ostream& operator << (std::ostream &os, const car &c);
+
 #endif // CAR_H
