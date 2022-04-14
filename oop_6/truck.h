@@ -8,6 +8,7 @@ class truck : public car {
 public:
     int weight;
     QString to_string()const;
+    bool operator<(const truck &t);
 };
 
 std::ostream& operator << (std::ostream &os, const truck &t);

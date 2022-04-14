@@ -32,6 +32,8 @@ std::vector<bus> jsonReader::readAll(){
 
         result.push_back(temp);
     }
+    // sorting
+    std::sort(result.begin(), result.end());
     return result;
 }
 

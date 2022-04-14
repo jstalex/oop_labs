@@ -83,11 +83,10 @@ void MainWindow::addcar(){
         tempcar.model = ui->inputModel->text();
         tempcar.year = ui->inputYear->text().toInt();
         tempcar.color = static_cast<colors>(ui->colorbox->currentIndex());
-        //cars.push_back(tempcar);
         writer.writecar(tempcar.to_string());
         // operator <<
-        std::cout << tempcar << std::endl;
-        // to debug
+        std::cout << tempcar << " is added" << std::endl;
+        ui->output_field->GreenText("Success!");
         break;
     case 1:
         temptruck.number = ui->inputID->text().toInt();
@@ -97,7 +96,8 @@ void MainWindow::addcar(){
         temptruck.color = static_cast<colors>(ui->colorbox->currentIndex());
         temptruck.weight = ui->inputOther->text().toInt();
         writer.writecar(temptruck.to_string());
-        //cars.push_back(temptruck);
+        std::cout << temptruck << " is added" << std::endl;
+        ui->output_field->GreenText("Success!");
         break;
     case 2:
         tempbus.number = ui->inputID->text().toInt();
@@ -107,7 +107,8 @@ void MainWindow::addcar(){
         tempbus.color = static_cast<colors>(ui->colorbox->currentIndex());
         tempbus.capacity = ui->inputOther->text().toInt();
         writer.writecar(tempbus.to_string());
-        //cars.push_back(tempbus);
+        std::cout << tempbus << " is added" << std::endl;
+        ui->output_field->GreenText("Success!");
         break;
     }
     // обновляем список автомобилей
@@ -116,7 +117,7 @@ void MainWindow::addcar(){
         cars = newDatabase.readAll();
     }
 }
-
+// demonstrate to lab_6
 void MainWindow::demonstrate(){
     Datareader cData("D:\\cars.csv");
     car tCar;
