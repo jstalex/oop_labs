@@ -7,6 +7,9 @@
 jsonReader::jsonReader(const QString& filename)
 {
     input.open(filename.toLatin1().data());
+    //nlohmann::json json;
+    input >> json;
+    index = 0;
 }
 
 std::vector<bus> jsonReader::readAll(){
@@ -16,7 +19,7 @@ std::vector<bus> jsonReader::readAll(){
     int tempColor;
     temp.capacity = 0;
 
-    nlohmann::json json;
+    //nlohmann::json json;
 
     input >> json;
 
@@ -38,20 +41,25 @@ std::vector<bus> jsonReader::readAll(){
 }
 
 jsonReader& jsonReader::operator >> (car &c){
-    nlohmann::json json;
-    input >> json;
+    /*nlohmann::json json;Ы
+    input >> json;*/
+    if (!(this->json[index].empty())){
+        std::string tempStr;
+        int tempColor;
 
-    std::string tempStr;
-    int tempColor;
+        json[index].at("id").get_to(c.number);
+        json[index].at("brand").get_to(tempStr);
+        c.brand = QString::fromStdString(tempStr);
+        json[index].at("model").get_to(tempStr);
+        c.model = QString::fromStdString(tempStr);
+        json[index].at("color").get_to(tempColor);
+        c.color = static_cast<colors>(tempColor);
+        json[index].at("year").get_to(c.year);
 
-    json[0].at("id").get_to(c.number);
-    json[0].at("brand").get_to(tempStr);
-    c.brand = QString::fromStdString(tempStr);
-    json[0].at("model").get_to(tempStr);
-    c.model = QString::fromStdString(tempStr);
-    json[0].at("color").get_to(tempColor);
-    c.color = static_cast<colors>(tempColor);
-    json[0].at("year").get_to(c.year);
+        index++;
+    }else {
+        input.close();
+    }
 
     return *this;
 }

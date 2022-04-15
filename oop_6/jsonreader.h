@@ -3,12 +3,15 @@
 #include "abstractreader.h"
 #include<QString>
 #include <fstream>
+#include<json.hpp>
 
 class jsonReader : public AbstractReader
 {
-    std::ifstream input;
+    //std::ifstream input;
 
 public:
+    std::ifstream input;
+
     jsonReader(const QString& filename);
 
     std::vector<bus> readAll()override;
@@ -17,6 +20,10 @@ public:
     jsonReader& operator >> (car &c);
 
     operator bool();
+
+    nlohmann::json json;
+
+    int index;
 };
 
 #endif // JSONREADER_H

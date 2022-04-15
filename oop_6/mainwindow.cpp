@@ -118,14 +118,23 @@ void MainWindow::addcar(){
     }
 }
 // demonstrate to lab_6
-void MainWindow::demonstrate(){
+
+/*void MainWindow::demonstrate(){
     Datareader cData("D:\\cars.csv");
     car tCar;
     while(cData >> tCar){
         std::cout << tCar << std::endl;
     }
-}
+}*/
 
+void MainWindow::demonstrate(){
+    //Datareader cData("D:\\cars.csv");
+    jsonReader jData("D:\\cars.json");
+    car tCar;
+    while(jData >> tCar){
+        std::cout << tCar << std::endl;
+    }
+}
 
 
 
