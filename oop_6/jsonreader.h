@@ -7,8 +7,6 @@
 
 class jsonReader : public AbstractReader
 {
-    //std::ifstream input;
-
 public:
     std::ifstream input;
 
@@ -17,12 +15,12 @@ public:
     std::vector<bus> readAll()override;
     bool isopen() const override {return input.is_open(); };
 
-    jsonReader& operator >> (car &c);
+    jsonReader& operator >> (car &c) override;
 
-    operator bool();
+    operator bool() const override;
 
     nlohmann::json json;
-
+    // for while in mainwindow
     int index;
 };
 

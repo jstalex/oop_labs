@@ -1,7 +1,7 @@
 #include "bus.h"
 #include<iostream>
 
-const QString bus::to_string() const {
+QString bus::to_string() const {
     return QString::number(number) + ";" + brand + ";" + model + ";" + QString::number(color) + ";" + QString::number(year)+ ";" + QString::number(capacity);
 }
 

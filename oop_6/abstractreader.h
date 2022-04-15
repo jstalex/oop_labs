@@ -11,8 +11,8 @@ class AbstractReader
 public:
     virtual std::vector<bus> readAll() = 0;
     virtual bool isopen() const = 0;
-    AbstractReader& operator >> (car &c);
-    operator bool();
+    virtual AbstractReader& operator >> (car &c) = 0;
+    virtual operator bool()const = 0;
 };
 
 #endif // ABSTRACTREADER_H

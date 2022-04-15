@@ -7,7 +7,7 @@
 class bus : public car {
 public:
     int capacity;
-    const QString to_string() const;
+    QString to_string() const;
     // for sorting
     bool operator<(const bus &b);
     // for writing in stream

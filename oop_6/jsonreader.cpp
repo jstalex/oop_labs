@@ -7,7 +7,6 @@
 jsonReader::jsonReader(const QString& filename)
 {
     input.open(filename.toLatin1().data());
-    //nlohmann::json json;
     input >> json;
     index = 0;
 }
@@ -18,10 +17,6 @@ std::vector<bus> jsonReader::readAll(){
     std::string tempStr;
     int tempColor;
     temp.capacity = 0;
-
-    //nlohmann::json json;
-
-    input >> json;
 
     for (auto& e: json){
         e.at("id").get_to(temp.number);
@@ -41,8 +36,6 @@ std::vector<bus> jsonReader::readAll(){
 }
 
 jsonReader& jsonReader::operator >> (car &c){
-    /*nlohmann::json json;Ы
-    input >> json;*/
     if (!(this->json[index].empty())){
         std::string tempStr;
         int tempColor;
@@ -64,7 +57,7 @@ jsonReader& jsonReader::operator >> (car &c){
     return *this;
 }
 
-jsonReader::operator bool(){
+jsonReader::operator bool() const{
     return this->isopen();
 }
 

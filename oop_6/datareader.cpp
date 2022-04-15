@@ -92,7 +92,7 @@ Datareader& Datareader::operator >> (car &c){
     return *this;
 }
 
-Datareader::operator bool(){
+Datareader::operator bool() const{
     return !(this->input.eof());
 }
 

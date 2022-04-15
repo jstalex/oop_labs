@@ -117,7 +117,7 @@ void MainWindow::addcar(){
         cars = newDatabase.readAll();
     }
 }
-// demonstrate to lab_6
+// demonstrate to lab_6 with csv files
 
 /*void MainWindow::demonstrate(){
     Datareader cData("D:\\cars.csv");
@@ -128,7 +128,6 @@ void MainWindow::addcar(){
 }*/
 
 void MainWindow::demonstrate(){
-    //Datareader cData("D:\\cars.csv");
     jsonReader jData("D:\\cars.json");
     car tCar;
     while(jData >> tCar){

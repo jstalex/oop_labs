@@ -18,16 +18,16 @@ public:
     Datareader( QString filename);
     ~Datareader();
     // наследованные
-    bool isopen() const;
-    std::vector<bus> readAll();
+    bool isopen()const override;
+    std::vector<bus> readAll() override;
     //Оператор присваивания перемещением
     Datareader& operator= (Datareader&& orther);
     // Конструктор перемещения
     Datareader(Datareader&& orther);
     // >> operator
-    Datareader& operator >> (car &c);
+    Datareader& operator >> (car &c) override;
     // type bool operator
-    operator bool();
+    operator bool()const override;
 };
 
 #endif // DATAREADER_H
