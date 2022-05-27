@@ -8,16 +8,24 @@ public:
     xType x;
     yType y;
     pointOnFlat(xType xInput, yType yInput) : x(xInput), y(yInput) {}
+    // инициализация нулем по умолчанию
+    pointOnFlat() : x(0), y(0) {}
+    pointOnFlat<xType, yType> operator + (pointOnFlat p){
+        return pointOnFlat<xType, yType>(this->x + p.x, this->y + p.y);
+    }
+    pointOnFlat<xType, yType> operator / (int count){
+        return pointOnFlat<xType, yType>(this->x / count, this->y / count);
+    }
 };
 
 
 template<typename vectorType>
-double average(std::vector<vectorType> arr){
-    vectorType sum(0);
+vectorType average(std::vector<vectorType> arr){
+    vectorType sum{};
     for (auto &value: arr){
         sum = sum + value;
     }
-    double answer = static_cast<double>(sum) / arr.size();
+    vectorType answer = sum / arr.size();
     return answer;
 }
 
@@ -35,16 +43,9 @@ int main()
     std::cout << "floatAverage = " << floatAverage << std::endl;
 
     // points on the flat
-    std::vector<pointOnFlat<double, int>> points{{1.2, 3},{2.1, 4},{2.2, 5},{1.1, 1}};
+    std::vector<pointOnFlat<int, int>> points{{1, 3},{2, 6},{3, 5},{7, 9}};
     // получим отдельно векторы значений координат точки
-    std::vector<double> xCoordinate;
-    std::vector<int> yCoordinate;
-    for(const auto &point: points){
-        xCoordinate.push_back(point.x);
-        yCoordinate.push_back(point.y);
-    }
-    auto xAverage = average(xCoordinate);
-    auto yAverage = average(yCoordinate);
-    std::cout << "xAverage = " << xAverage << " " << "yAverage = " << yAverage << std::endl;
+    auto pointAverage = average(points);
+    std::cout << "pointAverage = " << "x:" << pointAverage.x << " " << "y:" << pointAverage.y << std::endl;
     return 0;
 }

@@ -25,22 +25,17 @@ std::vector<bus> jsonReader::readAll(){
     int tempColor;
     temp.capacity = 0;
     // обработка исключений
-    try{
-        for (auto& e: json){
-            e.at("id").get_to(temp.number);
-            e.at("brand").get_to(tempStr);
-            temp.brand = QString::fromStdString(tempStr);
-            e.at("model").get_to(tempStr);
-            temp.model = QString::fromStdString(tempStr);
-            e.at("color").get_to(tempColor);
-            temp.color = static_cast<colors>(tempColor);
-            e.at("year").get_to(temp.year);
+    for (auto& e: json){
+        e.at("id").get_to(temp.number);
+        e.at("brand").get_to(tempStr);
+        temp.brand = QString::fromStdString(tempStr);
+        e.at("model").get_to(tempStr);
+        temp.model = QString::fromStdString(tempStr);
+        e.at("color").get_to(tempColor);
+        temp.color = static_cast<colors>(tempColor);
+        e.at("year").get_to(temp.year);
 
-            result.push_back(temp);
-        }
-    } catch(nlohmann::json::exception& err){
-        std::cout << "Error in " << err.what() << std::endl;
-        result.clear();
+        result.push_back(temp);
     }
     // sorting
     std::sort(result.begin(), result.end());

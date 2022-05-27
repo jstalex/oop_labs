@@ -52,8 +52,37 @@ std::vector<bus> Datareader::readAll(){
     std::vector<bus> result;
     bus temp;
     // обработка исключений stoi
+
+    int currentLine = 1;
+    for (const auto &line: cars) {
+        // исключения по дате
+        if (line.size() == 5){
+            temp.capacity = 0;
+            temp.number = stoi(line[0]);
+            temp.brand = QString::fromStdString(line[1]);
+            temp.model = QString::fromStdString(line[2]);
+            temp.color = static_cast<colors>(stoi(line[3]));
+            temp.year = stoi(line[4]);
+            if (temp.year > 2022 || temp.year < 1900){
+                throw CsvException(currentLine);
+            }
+        } else {
+            temp.number = stoi(line[0]);
+            temp.brand = QString::fromStdString(line[1]);
+            temp.model = QString::fromStdString(line[2]);
+            temp.color = static_cast<colors>(stoi(line[3]));
+            temp.year = stoi(line[4]);
+            if (temp.year > 2022 || temp.year < 1900){
+                throw CsvException(currentLine);
+            }
+            temp.capacity = stoi(line[5]);
+            result.push_back(temp);
+        }
+        currentLine++;
+    }
+    /*
     try{
-        int currentLine = 0;
+        int currentLine = 1;
         for (const auto &line: cars){
             // исключения по дате
             try {
@@ -92,6 +121,7 @@ std::vector<bus> Datareader::readAll(){
         result.clear();
         return result;
     }
+    */
     // sorting
     std::sort(result.begin(), result.end());
     return result;
