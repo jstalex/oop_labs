@@ -24,6 +24,6 @@ public slots:
     void selectFile();
 private:
     Ui::MainWindow *ui;
-    std::vector<std::vector<std::string>> cars;
+    std::vector<car> cars;
 };
 #endif // MAINWINDOW_H

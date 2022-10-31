@@ -3,6 +3,7 @@
 #include "abstractreader.h"
 #include<QString>
 #include <fstream>
+#include<car.h>
 
 class jsonReader : public AbstractReader
 {
@@ -11,7 +12,7 @@ class jsonReader : public AbstractReader
 public:
     jsonReader(const QString& filename);
 
-    std::vector<std::vector<std::string>> readAll()override;
+    std::vector<car> readAll()override;
     bool isopen() const override {return input.is_open(); };
 };
 

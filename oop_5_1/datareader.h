@@ -16,7 +16,7 @@ public:
     ~Datareader();
     // наследованные
     bool isopen() const;
-    std::vector<std::vector<std::string>> readAll();
+    std::vector<car> readAll();
 
     //Оператор присваивания перемещением
     Datareader& operator= (Datareader&& orther);

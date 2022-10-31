@@ -9,38 +9,26 @@ jsonReader::jsonReader(const QString& filename)
     input.open(filename.toLatin1().data());
 }
 
-std::vector<std::vector<std::string>> jsonReader::readAll(){
+std::vector<car> jsonReader::readAll(){
 
-    std::vector<std::vector<std::string>> result;
+    std::vector<car> result;
+    car tempcar;
     nlohmann::json json;
 
     input >> json;
 
-    std::vector<std::string> line;
-
-    int id, color, year;
-    std::string brand, model, idS, colorS, yearS;
+    std::string brand, model;
 
 
     for (auto& e: json){
-        e.at("id").get_to(id);
+        e.at("id").get_to(tempcar.number);
         e.at("brand").get_to(brand);
         e.at("model").get_to(model);
-        e.at("color").get_to(color);
-        e.at("year").get_to(year);
-
-        idS = std::to_string(id);
-        colorS = std::to_string(color);
-        yearS = std::to_string(year);
-
-        line.push_back(idS);
-        line.push_back(brand);
-        line.push_back(model);
-        line.push_back(colorS);
-        line.push_back(yearS);
-
-        result.push_back(line);
-        line.clear();
+        tempcar.brand = QString::fromStdString(brand);
+        tempcar.model = QString::fromStdString(model);
+        e.at("color").get_to(tempcar.color);
+        e.at("year").get_to(tempcar.year);
+        result.push_back(tempcar);
     }
 
     return result;

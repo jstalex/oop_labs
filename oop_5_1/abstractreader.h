@@ -3,11 +3,12 @@
 
 #include<string>
 #include<vector>
+#include<car.h>
 
 class AbstractReader
 {
 public:
-    virtual std::vector<std::vector<std::string>> readAll() = 0;
+    virtual std::vector<car> readAll() = 0;
     virtual bool isopen() const = 0;
 };
 
