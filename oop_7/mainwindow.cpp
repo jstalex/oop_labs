@@ -47,20 +47,31 @@ void MainWindow::selectFile(){
 
         this->fileName = fileName;
 
-        //Открытие файла
-        if(fileName.right(1) == QString::fromStdString("v")){
-            Datareader csvData(fileName);
-            if (csvData.isopen()){
-                //Чтение из файла в вектор
-                cars = csvData.readAll();
+        try {
+            //Открытие файла
+            if(fileName.right(1) == QString::fromStdString("v")){
+                Datareader csvData(fileName);
+                if (csvData.isopen()){
+                    //Чтение из файла в вектор
+                    cars = csvData.readAll();
+                }
             }
+        } catch(const CsvException& err) {
+            ui->output_field->RedText("Incorrect year " + QString::fromStdString(err.whatError()));
         }
-        if(fileName.right(1) == QString::fromStdString("n")){
-            jsonReader jsonData(fileName);
-            if (jsonData.isopen()){
-                //Чтение из файла в вектор
-                cars = jsonData.readAll();
+
+
+
+        try{
+            if(fileName.right(1) == QString::fromStdString("n")){
+                jsonReader jsonData(fileName);
+                if (jsonData.isopen()){
+                    //Чтение из файла в вектор
+                    cars = jsonData.readAll();
+                }
             }
+        } catch(nlohmann::json::exception& err){
+        ui->output_field->RedText("Error in " + QString::fromStdString( err.what()));
         }
 }
 
